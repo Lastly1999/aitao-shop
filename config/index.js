@@ -1,7 +1,7 @@
 const config = {
   projectName: 'aitao',
   date: '2021-10-18',
-  designWidth: 750,
+  designWidth: 828,
   deviceRatio: {
     640: 2.34 / 2,
     750: 1,
