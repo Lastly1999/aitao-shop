@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { View } from '@tarojs/components'
+
+import { AtSearchBar } from "taro-ui"
 
 // hooks
 import useNavInfo from "../../hooks/useNavInfo"
 
-import { AtSearchBar } from 'taro-ui'
 import "./index.scss"
 
 export default function NavBar() {
-
+  
   const { statusBarHeight } = useNavInfo()
+
   const [keyWords, setKeyWords] = useState()
 
   const searchChange = () => {
@@ -17,8 +19,9 @@ export default function NavBar() {
   }
 
   return (
-    <View style={{ marginTop: statusBarHeight, width: '72%' }}>
+    <View style={{ paddingTop: statusBarHeight, width: '100%', backgroundColor: '#fbd62f!important' }}>
       <AtSearchBar
+        className='global-search-bar'
         value={keyWords}
         onChange={searchChange}
       />

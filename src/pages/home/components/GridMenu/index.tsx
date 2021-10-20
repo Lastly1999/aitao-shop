@@ -3,9 +3,10 @@ import { View, Swiper, SwiperItem } from "@tarojs/components"
 import { AtGrid } from 'taro-ui'
 import "./index.scss"
 
-export default function GridMenu() {
+export default function GridMenu(props) {
   return (
     <Swiper
+      className='grid-menu'
       indicatorColor='#999'
       indicatorActiveColor='#333'
       circular

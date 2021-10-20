@@ -1,7 +1,5 @@
-/* eslint-disable react/jsx-indent-props */
-import { Component } from 'react'
+import React from 'react'
 import { View, Swiper, SwiperItem } from '@tarojs/components'
-import { AtTabBar } from 'taro-ui'
 import Taro from "@tarojs/taro"
 
 // components
@@ -15,15 +13,10 @@ import HomePage from "../home"
 
 import './index.scss'
 
-export default class Index extends Component {
+export default class Index extends React.Component {
 
     state = {
-        current: 0,
-        tabList: [
-            { title: '首页', iconType: 'home' },
-            { title: '拍照', iconType: 'camera' },
-            { title: '我的', iconType: 'shopping-bag-2' }
-        ]
+        current: 0
     }
 
     onLoad = async () => {
@@ -31,23 +24,19 @@ export default class Index extends Component {
         console.log(res)
     }
 
-    // 底部导航点击
-    handleClick = (index) => {
-        this.setState({
-            current: index
-        })
-    }
 
     render() {
-        const { current, tabList } = this.state
         return (
             <View className='index'>
                 <NavBar />
-                <Swiper
-                    current={current}
-                    indicatorColor='#999'
-                    indicatorActiveColor='#333'
-                    circular
+                {/* <Swiper
+                  style={{ height: '100%' }}
+                  current={current}
+                  easing-function='easeInOutCubic'
+                  indicatorColor='#999'
+                  indicatorActiveColor='#333'
+                  circular
+                  skip-hidden-item-layout
                 >
                     <SwiperItem>
                         <HomePage />
@@ -58,14 +47,7 @@ export default class Index extends Component {
                     <SwiperItem>
                         <View className='demo-text-3'>3</View>
                     </SwiperItem>
-                </Swiper>
-                <AtTabBar
-                    fontSize={11}
-                    fixed
-                    tabList={tabList}
-                    current={current}
-                    onClick={this.handleClick}
-                />
+                </Swiper> */}
             </View >
         )
     }

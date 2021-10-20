@@ -6,13 +6,15 @@ export const loginAction = () => {
     Taro.login({
       success: (res) => {
         Taro.request({
-          url: `http://localhost:3000/v1/auth/login `,
+          url: `http://localhost:3690/v1/auth/login `,
           method: 'POST',
           data: {
             jsCode: res.code
+          },
+          success: (result: Taro.request.SuccessCallbackResult<any>) => {
+            console.log(result)
+            resolve(result)
           }
-        }).then(res => {
-          console.log(res)
         })
       },
       fail: (err) => {

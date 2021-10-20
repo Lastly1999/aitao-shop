@@ -1,33 +1,27 @@
-import { Component } from 'react'
+import React from 'react'
 import { View } from '@tarojs/components'
-
-import Taro from "@tarojs/taro"
 
 // components
 import GridMenu from "./components/GridMenu"
+import Tabs from "./components/Tabs"
 
 import './index.scss'
 
-export default class Home extends Component {
+export default class Home extends React.Component {
 
   state = {
     keywords: ''
   }
 
-  // 对应 onLaunch
-  onLaunch = () => {
-    
-  }
-
-  searchChange = (val) => {
+  searchChange = val => {
     console.log(val)
   }
 
   render() {
-    const { keywords } = this.state
     return (
       <View className='home'>
         <GridMenu />
+        <Tabs />
       </View >
     )
   }
