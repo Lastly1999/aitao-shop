@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import './app.scss'
+import './theme/custom-variables.scss'
 
 class App extends Component {
   // this.props.children 是将要会渲染的页面
@@ -9,3 +9,4 @@ class App extends Component {
 }
 
 export default App
+ 

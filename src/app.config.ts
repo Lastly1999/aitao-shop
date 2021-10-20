@@ -2,28 +2,32 @@ export default {
   pages: [
     'pages/index/index',
     'pages/user/index',
-    'pages/home/index',
+    'pages/shop/index',
   ],
   tabBar: {
-    custom: true,
-    color: '#999',
-    selectedColor: '#B90220',
-    backgroundColor: "#000",
+    custom: false,
+    color: '#000',
+    selectedColor: '#e93b3d',
+    backgroundColor: '#fff',
+    borderStyle: 'white',
     list: [{
       pagePath: "pages/index/index",
-      text: "首页"
+      text: "首页",
+      iconPath: "assets/tabBar/home.png",
+      selectedIconPath: "assets/tabBar/home-checked.png"
     }, {
-      pagePath: "pages/home/index",
-      text: "外卖"
+      pagePath: "pages/shop/index",
+      text: "外卖",
+      iconPath: "assets/tabBar/waimai.png",
+      selectedIconPath: "assets/tabBar/waimai-checked.png"
     }, {
       pagePath: "pages/user/index",
-      text: "我的"
+      text: "我的",
+      iconPath: "assets/tabBar/user.png",
+      selectedIconPath: "assets/tabBar/user-checked.png"
     }
-    ],
-    usingComponents: {
-      customtabbar: "custom-tab-bar/index"
-    }
-  },
+    ]
+  }, 
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',

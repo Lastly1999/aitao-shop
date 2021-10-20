@@ -8,7 +8,7 @@ export default function Tabs() {
   const [current, setCurrent] = useState(0)
 
   const handleClick = (index: number) => {
-    console.log(index)
+    setCurrent(index)
   }
 
   return (

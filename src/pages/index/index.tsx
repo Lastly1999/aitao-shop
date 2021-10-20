@@ -4,11 +4,12 @@ import Taro from "@tarojs/taro"
 
 // components
 import NavBar from '../../components/NavBar/index'
+import GridMenu from "./components/GridMenu"
+import Tabs from "./components/Tabs"
+
 // apis
 import { loginAction } from "../../services/auth"
 
-// pages
-import HomePage from "../home"
 
 
 import './index.scss'
@@ -29,25 +30,8 @@ export default class Index extends React.Component {
         return (
             <View className='index'>
                 <NavBar />
-                {/* <Swiper
-                  style={{ height: '100%' }}
-                  current={current}
-                  easing-function='easeInOutCubic'
-                  indicatorColor='#999'
-                  indicatorActiveColor='#333'
-                  circular
-                  skip-hidden-item-layout
-                >
-                    <SwiperItem>
-                        <HomePage />
-                    </SwiperItem>
-                    <SwiperItem>
-                        <View className='demo-text-2'>2</View>
-                    </SwiperItem>
-                    <SwiperItem>
-                        <View className='demo-text-3'>3</View>
-                    </SwiperItem>
-                </Swiper> */}
+                <GridMenu />
+                <Tabs />
             </View >
         )
     }
