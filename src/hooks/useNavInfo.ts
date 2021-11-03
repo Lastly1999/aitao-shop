@@ -31,7 +31,6 @@ function useNavInfo(): INavInfo {
   })
 
   useEffect(() => {
-    console.log('sssss', Taro.getSystemInfoSync())
     const { statusBarHeight, screenWidth, screenHeight, windowHeight } = Taro.getSystemInfoSync()
     // 获取胶囊信息
     const { width, height, left, top, right } = Taro.getMenuButtonBoundingClientRect()
