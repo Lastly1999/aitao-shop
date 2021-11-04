@@ -27,7 +27,7 @@ export default {
       selectedIconPath: "assets/tabBar/user-checked.png"
     }
     ]
-  }, 
+  },
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',

@@ -1,5 +1,5 @@
-import React, {ReactNode, useEffect, useState} from 'react'
-import {View, ScrollView} from "@tarojs/components"
+import React, {ReactNode, useState} from 'react'
+import {View, ScrollView, CoverView, CoverImage} from "@tarojs/components"
 import {BaseEventOrig} from "@tarojs/components/types/common"
 import Taro from "@tarojs/taro"
 
@@ -20,7 +20,7 @@ const ScrollList: React.FC<ScrollProps> = (props) => {
 		Taro.getSystemInfo({
 			success: res => {
 				setCurrentHeight(v => {
-					return res.windowHeight - (40 + 150 + 30 + res.statusBarHeight)
+					return res.windowHeight - (40 + 150 + 39 + res.statusBarHeight)
 				})
 			}
 		})
@@ -51,9 +51,12 @@ const ScrollList: React.FC<ScrollProps> = (props) => {
 		onScroll={onScroll}
 		enable-flex={true}
 	  >
-		  <View>
+		  <View className='shop-list'>
 			  {props.list.map(item => {
-				  return <View>{item.title}</View>
+				  return <View className='shop-list-item'>
+					  <CoverImage className='shop-img' src={item.pict_url}/>
+					  <View className='shop-title'>{item.title}</View>
+				  </View>
 			  })}
 		  </View>
 	  </ScrollView>

@@ -1,7 +1,21 @@
-page {
-  height: 100%;
+
+.shop-list {
+  padding: 10px;
+
+  .shop-list-item {
+    margin:20px 0;
+    display: flex;
+
+    .shop-title {
+      display: inline-block;
+      margin-left: 15px;
+    }
+
+    .shop-img {
+      width: 200PX;
+    }
+  }
 }
 
-.index {
-  height: 100%;
-}
+
+

@@ -13,6 +13,7 @@ type TabsProps = {
 export type ListItem = {
 	title: string;
 	id: string;
+	mId: string;
 }
 
 const Tabs: React.FC<TabsProps> = (props) => {
@@ -40,6 +41,21 @@ const Tabs: React.FC<TabsProps> = (props) => {
 		onClick={handleClick}
 	  >
 		  <AtTabsPane current={current} index={0}>
+			  <View>
+				  {props.children}
+			  </View>
+		  </AtTabsPane>
+		  <AtTabsPane current={current} index={1}>
+			  <View>
+				  {props.children}
+			  </View>
+		  </AtTabsPane>
+		  <AtTabsPane current={current} index={2}>
+			  <View>
+				  {props.children}
+			  </View>
+		  </AtTabsPane>
+		  <AtTabsPane current={current} index={3}>
 			  <View>
 				  {props.children}
 			  </View>

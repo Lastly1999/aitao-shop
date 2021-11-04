@@ -47,7 +47,11 @@ const Index: React.FC = () => {
 
 	// tabs change事件
 	const tabsChange = (index: number) => {
-
+		setCtegoriesParmas({
+			pageSize: 10,
+			pageOn: 1,
+			materialId: tabList[index].mId
+		})
 	}
 
 	/**
@@ -71,8 +75,6 @@ const Index: React.FC = () => {
 	const getReCommoditys = async (index = tabsCurrent) => {
 		const res: HttpResponse = await getCategories(ctegoriesParmas)
 		setCategories(res.data.commodits)
-		console.log(res)
-		console.log(tabList)
 	}
 
 	return (
