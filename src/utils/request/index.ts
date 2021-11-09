@@ -1,7 +1,7 @@
 import Taro from "@tarojs/taro"
 import {HttpResponse} from "../../services/model";
 
-const API_URL = "http://127.0.0.1:3690/v1"
+const API_URL = "http://192.168.200.107:3690/v1"
 
 type RequestOptions = {
 	path: string;

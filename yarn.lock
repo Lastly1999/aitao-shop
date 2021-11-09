@@ -10898,6 +10898,13 @@ qs@6.7.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
+qs@^6.7.0:
+  version "6.10.1"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.10.1.tgz#4931482fa8d647a5aab799c5271d2133b981fb6a"
+  integrity sha512-M528Hph6wsSVOBiYUnGf+K/7w0hNshs/duGsNXPUCLH5XAqjEtiPGwNONLV0tBH8NoGb0mvD5JubnUTrujKDTg==
+  dependencies:
+    side-channel "^1.0.4"
+
 qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
@@ -12921,6 +12928,15 @@ taro-css-to-react-native@^2.0.4:
     css-color-keywords "^1.0.0"
     css-mediaquery "^0.1.2"
     postcss-value-parser "^3.3.0"
+
+taro-listview@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/taro-listview/-/taro-listview-2.0.4.tgz#dc2e114eefa249bb8f6a78fdc5d3277e615005d5"
+  integrity sha512-vDqEdW0XD3adzmzlkeMrm+yzu8+XF1l2xVDEXuL0xD8M54uloxgQm8Thp7dASpCGwGRgv40Dq7y0oJMOGWszYg==
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+    classnames "^2.2.6"
+    qs "^6.7.0"
 
 taro-ui@^3.0.0-alpha.3:
   version "3.0.0-alpha.10"

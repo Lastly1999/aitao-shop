@@ -1,66 +1,99 @@
-import React, {ReactNode, useState} from 'react'
-import {View, ScrollView, CoverView, CoverImage} from "@tarojs/components"
-import {BaseEventOrig} from "@tarojs/components/types/common"
-import Taro from "@tarojs/taro"
+import React, { ReactNode, useEffect, useState } from 'react'
+import { View, ScrollView } from "@tarojs/components"
+import { BaseEventOrig } from "@tarojs/components/types/common"
+import Taro, { useReady } from "@tarojs/taro"
 
-import {useReady} from "@tarojs/taro"
+import { AtActivityIndicator } from 'taro-ui'
+
+
 
 import "./index.scss"
 
 type ScrollProps = {
-	list: any[];
-	children?: ((x: number) => ReactNode) | ReactNode;
+  list: any[];
+  refresherStatus: boolean;
+  children?: ((x: number) => ReactNode) | ReactNode;
+  loading: boolean;
+  onToLower: (e: BaseEventOrig) => void;
+  onRefresh: (e: BaseEventOrig) => void;
 }
 
 const ScrollList: React.FC<ScrollProps> = (props) => {
 
-	const [currentHeight, setCurrentHeight] = useState(0)
+  const [currentHeight, setCurrentHeight] = useState<number>(0)
+  const [refresherStatus, setrRefresherStatus] = useState<boolean>(false)
+  const [dataLoading, setDataLoading] = useState<boolean>(false)
 
-	useReady(() => {
-		Taro.getSystemInfo({
-			success: res => {
-				setCurrentHeight(v => {
-					return res.windowHeight - (40 + 150 + 39 + res.statusBarHeight)
-				})
-			}
-		})
-		.then(res => console.log(res))
-	})
+  useEffect(() => {
+    setrRefresherStatus(props.refresherStatus)
+  }, [props.refresherStatus])
 
-	const onScrollToUpper = (e: BaseEventOrig) => {
-		console.log(e)
-	}
+  useEffect(() => {
+    console.log(props.list)
+  }, [props.list])
 
-	const onScroll = (e: BaseEventOrig) => {
-		console.log(e)
-	}
+  useEffect(() => {
+    setDataLoading(props.loading)
+  }, [props.loading])
 
-	const scrollTop = 20
-	const Threshold = 20
+  useReady(() => {
+    Taro.getSystemInfo({
+      success: res => {
+        setCurrentHeight(v => {
+          return res.windowHeight - (40 + 150 + 39 + res.statusBarHeight)
+        })
+      }
+    })
+      .then(res => console.log(res))
+  })
 
-	return (
-	  <ScrollView
-		className='scrollview'
-		scrollY={true}
-		style={{height: currentHeight}}
-		scrollWithAnimation
-		scrollTop={scrollTop}
-		lowerThreshold={Threshold}
-		upperThreshold={Threshold}
-		onScrollToUpper={onScrollToUpper}
-		onScroll={onScroll}
-		enable-flex={true}
-	  >
-		  <View className='shop-list'>
-			  {props.list.map(item => {
-				  return <View className='shop-list-item'>
-					  <CoverImage className='shop-img' src={item.pict_url}/>
-					  <View className='shop-title'>{item.title}</View>
-				  </View>
-			  })}
-		  </View>
-	  </ScrollView>
-	)
+  const onScrollToLower = (e: BaseEventOrig) => {
+    if (props.onToLower) props.onToLower(e)
+  }
+
+  // 自定义下拉刷新被触发
+  const onRefresh = (event: BaseEventOrig): any => {
+    if (props.onRefresh) props.onRefresh(event)
+  }
+
+  const scrollTop = 20
+
+  return (
+    <ScrollView
+      className='scrollview'
+      scrollY
+      style={{ height: currentHeight }}
+      scrollWithAnimation
+      scrollTop={scrollTop}
+      lowerThreshold={1}
+      upperThreshold={10}
+      onScrollToLower={onScrollToLower}
+      enable-flex
+      refresherTriggered={refresherStatus}
+      refresherEnabled
+      onRefresherRefresh={onRefresh}
+    >
+      <View className='shop-list'>
+        {props.list.map((item, index) => {
+          return <View className='shop-list-item' key={index}>
+            <View style={{
+              background: `url(${item.pict_url})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: 'contain'
+            }} className='shop-list-img'
+            />
+            <View className='shop-title'>{item.title}</View>
+          </View>
+        })}
+      </View>
+      {
+        dataLoading &&
+        <View className='loading-name'><AtActivityIndicator content='正在玩命加载中...'>
+          </AtActivityIndicator>
+        </View>
+      }
+    </ScrollView>
+  )
 }
 
 export default ScrollList

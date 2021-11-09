@@ -1,3 +1,31 @@
 .scrollview {
-  height: 100%;
+      height: 100%;
+      background: #eee;
+      .loading-name {
+            margin: 10px 0 20px 0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+      }
+      .shop-list {
+            padding: 10px;
+
+            .shop-list-item {
+                  margin: 20px 0;
+                  padding: 5px;
+                  background: #fff;
+                  justify-content: space-between;
+                  display: flex;
+                  height: 300px;
+
+                  .shop-list-img {
+                        width: 40%;
+                  }
+
+                  .shop-title {
+                        width: 60%;
+                        display: inline-block;
+                  }
+            }
+      }
 }
